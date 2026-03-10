@@ -51,7 +51,7 @@ def get_sentiment(text):
     return sentiment_label
 
 # Получение данных
-def get_posts_and_comments(token, group_ids, posts_per_group=10, comments_per_post=5):
+def get_posts_and_comments(token, group_ids, posts_per_group=100, comments_per_post=5):
     vk = vk_api.VkApi(token=token).get_api()
     raw_data = []
 
@@ -142,5 +142,6 @@ for post in raw_data:
 # Сохраняем результаты анализа
 with open('sentiment_analysis.txt', 'w', encoding='utf-8') as f:
     json.dump(sentiment_results, f, ensure_ascii=False, indent=4)
+
 
 print("Все данные обработаны и сохранены.")
